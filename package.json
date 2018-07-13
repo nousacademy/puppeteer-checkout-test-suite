@@ -1,0 +1,12 @@
+{
+  "name": "bfx_qa_automation",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Jisu and Friends",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "selenium-webdriver": "^3.6.0"
+  }
+}
