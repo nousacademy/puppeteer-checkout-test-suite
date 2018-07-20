@@ -1,10 +1,28 @@
 let selenium = require('selenium-webdriver');
 let test = require('selenium-webdriver/testing');
 let expect = require('chai').expect;
+let config = require('../test_config.json');
+//let path = require('path');
+//console.log(path.resolve( __dirname, "../test_config.json" ));
+
+//console.log(config);
 
 // Since mocha is being used for browser-based tests need to up default timeout 2,000ms -> 15,000ms
 const timeOut = 15000;
+
+config.testEnvs.forEach(env => {
+  let testEnv = env;
+  if (config.jenkinsEnv !== testEnv.jenkins)
+    return;
   
+  testEnv.urls.forEach(url => {
+    testUrl = url;
+    console.log('jupiii !! ' + testUrl.proxy );
+  });  
+});
+
+let driver = new selenium.Builder().usingServer().withCapabilities({'browserName': 'chrome' }).build();
+   
 // Function to check if css selector has localized
 let localizedPricesCheck = (selector) => {
   driver.wait(selenium.until.elementLocated(selenium.By.css(selector)), timeOut).then(() => {
@@ -29,15 +47,36 @@ let proxyLeakCheck = () => {
   });
 }
 
-test.before(function() {
+//declare global variables (MAT settings, enviroment)
+let MATSettings = {};
+
+test.before(function(done) {
   this.timeout(timeOut);
-  driver = new selenium.Builder().usingServer().withCapabilities({'browserName': 'chrome' }).build();
+
   driver.get("http://global.americanapparel.com/");
+
+  //get sessionId
+  driver.manage().getCookie('bfx.sessionId').then(function (cookie) {
+    let sessionId = cookie.value;
+    //console.log(sessionId);
+    //wait for session storage
+    var getMATSettings = setInterval(() => {
+      //get MAT settings
+      driver.executeScript("return window.sessionStorage.getItem('" + sessionId + ":merchant');").then((transforms) => {
+        if (transforms !== null) {
+          clearInterval(getMATSettings);
+          MATSettings = JSON.parse(transforms);          
+          //console.log(MATSettings.localizations.pages[0].transforms[0].selector);
+          done();
+        }        
+      });
+    }, 500);      
+  });   
 });
  
-// test.after(() => {
-//   driver.quit();
-// });
+test.after(() => {
+  driver.quit();
+});
 
 // Takes a screenshot if test fails
 afterEach(function() {
@@ -49,7 +88,7 @@ afterEach(function() {
       function(image, err) {
         let date = new Date();
         let timeStamp = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-        let fileName = '[FAIL]' + '--' + testTitle + '--' + timeStamp;
+        let fileName = '[FAIL]' + '--' + testTitle + '--' + timeStamp + ".png";
         require('fs').writeFile('./screenshots/' + fileName, image, 'base64', function(err) {
           console.log(err);
         });
@@ -61,7 +100,16 @@ afterEach(function() {
 test.describe('BFX Proxy | Homepage', function() {
   
   this.timeout(timeOut);
-  
+
+  test.it("Check stub.js env value", () => {
+    //check enviroment
+    driver.executeScript("return bfx._env;").then((env) => {
+      // console.log(env);
+      // console.log(config.testEnvs[1].matEnv);
+      expect(env).to.equal(config.testEnvs[1].matEnv);
+    });
+  });
+
   test.it('Prints title of page', () => {
 
     driver.getTitle().then( (title) => {
