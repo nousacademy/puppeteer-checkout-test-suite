@@ -5,12 +5,14 @@
       "type" : "mlocal",
       "matEnv": "STAGE",
       "urls": [{"proxy": "https://mlocal.americanapparel.com", "origin": "www.americanapparel.com"}],
+      "timeOut" : 25000,
       "jenkins" : false
     },
     {
       "type" : "production", 
       "matEnv": "PROD",
       "urls": [{"proxy": "https://global.americanapparel.com", "origin": "www.americanapparel.com"}],
+      "timeOut" : 15000,
       "jenkins" : true
     },
     {
@@ -19,6 +21,7 @@
       "urls": [
         {"proxy": "https://mbfx-stage17851.americanapparel.com.moovapp.com", "origin": "www.americanapparel.com"},
         {"proxy": "https://mbfx-stage17921.aap-uat-store.sparkred.com.moovapp.com", "origin": "aap-uat-store.sparkred.com"}],
+      "timeOut" : 20000,
       "jenkins" : true
     }
   ]
