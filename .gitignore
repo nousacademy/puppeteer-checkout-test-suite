@@ -9,4 +9,4 @@ yarn.lock
 package-lock.json
 screenshots/*
 !screenshots/.gitkeep
-chromedriver
+chromedriver*

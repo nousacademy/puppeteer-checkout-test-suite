@@ -6,7 +6,7 @@ Automated tests for bfx proxy sites.
 
 You will need:
 
-[Node](https://nodejs.org/en/)
+[Node](https://nodejs.org/en/) at least version 7.6
 
 ### Installing
 
