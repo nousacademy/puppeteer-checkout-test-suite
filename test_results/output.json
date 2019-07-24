@@ -1,0 +1,463 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 30,
+    "passes": 30,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-07-23T20:45:25.740Z",
+    "end": "2019-07-23T20:47:16.374Z",
+    "duration": 110634
+  },
+  "suites": [
+    {
+      "title": "Perform a checkout on https://global.allenedmonds.com",
+      "tests": [
+        {
+          "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the proxy site",
+          "title": "can GET to the proxy site",
+          "duration": 2743,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.allenedmonds.com has production snippet",
+          "title": "has production snippet",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the PDP",
+          "title": "can GET to the PDP",
+          "duration": 4775,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.allenedmonds.com checks if the Context Chooser is localized",
+          "title": "checks if the Context Chooser is localized",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.allenedmonds.com adds to cart on PDP",
+          "title": "adds to cart on PDP",
+          "duration": 8121,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.allenedmonds.com goes to checkout and loads the envoy",
+          "title": "goes to checkout and loads the envoy",
+          "duration": 2355,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Perform a checkout on https://global.americanapparel.com/en/",
+      "tests": [
+        {
+          "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ can GET to the proxy site",
+          "title": "can GET to the proxy site",
+          "duration": 6180,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ has production snippet",
+          "title": "has production snippet",
+          "duration": 15,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ can GET to the PDP",
+          "title": "can GET to the PDP",
+          "duration": 6437,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ checks if the Context Chooser is localized",
+          "title": "checks if the Context Chooser is localized",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ adds to cart on PDP",
+          "title": "adds to cart on PDP",
+          "duration": 5080,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ goes to checkout and loads the envoy",
+          "title": "goes to checkout and loads the envoy",
+          "duration": 5705,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Perform a checkout on https://global.prana.com",
+      "tests": [
+        {
+          "fullTitle": "Perform a checkout on https://global.prana.com can GET to the proxy site",
+          "title": "can GET to the proxy site",
+          "duration": 4219,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.prana.com has production snippet",
+          "title": "has production snippet",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.prana.com can GET to the PDP",
+          "title": "can GET to the PDP",
+          "duration": 5220,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.prana.com checks if the Context Chooser is localized",
+          "title": "checks if the Context Chooser is localized",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.prana.com adds to cart on PDP",
+          "title": "adds to cart on PDP",
+          "duration": 12208,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.prana.com goes to checkout and loads the envoy",
+          "title": "goes to checkout and loads the envoy",
+          "duration": 3394,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Perform a checkout on https://intl.target.com",
+      "tests": [
+        {
+          "fullTitle": "Perform a checkout on https://intl.target.com can GET to the proxy site",
+          "title": "can GET to the proxy site",
+          "duration": 4340,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.target.com has production snippet",
+          "title": "has production snippet",
+          "duration": 119,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.target.com can GET to the PDP",
+          "title": "can GET to the PDP",
+          "duration": 6391,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.target.com checks if the Context Chooser is localized",
+          "title": "checks if the Context Chooser is localized",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.target.com adds to cart on PDP",
+          "title": "adds to cart on PDP",
+          "duration": 1435,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.target.com goes to checkout and loads the envoy",
+          "title": "goes to checkout and loads the envoy",
+          "duration": 3100,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Perform a checkout on https://global.ulta.com",
+      "tests": [
+        {
+          "fullTitle": "Perform a checkout on https://global.ulta.com can GET to the proxy site",
+          "title": "can GET to the proxy site",
+          "duration": 6559,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.ulta.com has production snippet",
+          "title": "has production snippet",
+          "duration": 4,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.ulta.com can GET to the PDP",
+          "title": "can GET to the PDP",
+          "duration": 11315,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.ulta.com checks if the Context Chooser is localized",
+          "title": "checks if the Context Chooser is localized",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.ulta.com adds to cart on PDP",
+          "title": "adds to cart on PDP",
+          "duration": 4203,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://global.ulta.com goes to checkout and loads the envoy",
+          "title": "goes to checkout and loads the envoy",
+          "duration": 4472,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the proxy site",
+      "title": "can GET to the proxy site",
+      "duration": 2743,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.allenedmonds.com has production snippet",
+      "title": "has production snippet",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 4775,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.allenedmonds.com checks if the Context Chooser is localized",
+      "title": "checks if the Context Chooser is localized",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.allenedmonds.com adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 8121,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.allenedmonds.com goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 2355,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ can GET to the proxy site",
+      "title": "can GET to the proxy site",
+      "duration": 6180,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ has production snippet",
+      "title": "has production snippet",
+      "duration": 15,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 6437,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ checks if the Context Chooser is localized",
+      "title": "checks if the Context Chooser is localized",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 5080,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 5705,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.prana.com can GET to the proxy site",
+      "title": "can GET to the proxy site",
+      "duration": 4219,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.prana.com has production snippet",
+      "title": "has production snippet",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.prana.com can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 5220,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.prana.com checks if the Context Chooser is localized",
+      "title": "checks if the Context Chooser is localized",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.prana.com adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 12208,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.prana.com goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 3394,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.target.com can GET to the proxy site",
+      "title": "can GET to the proxy site",
+      "duration": 4340,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.target.com has production snippet",
+      "title": "has production snippet",
+      "duration": 119,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.target.com can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 6391,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.target.com checks if the Context Chooser is localized",
+      "title": "checks if the Context Chooser is localized",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.target.com adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 1435,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.target.com goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 3100,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.ulta.com can GET to the proxy site",
+      "title": "can GET to the proxy site",
+      "duration": 6559,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.ulta.com has production snippet",
+      "title": "has production snippet",
+      "duration": 4,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.ulta.com can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 11315,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.ulta.com checks if the Context Chooser is localized",
+      "title": "checks if the Context Chooser is localized",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.ulta.com adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 4203,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://global.ulta.com goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 4472,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}
