@@ -1,12 +1,30 @@
 {
   "name": "bfx_qa_automation",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Automated tests for bfx proxy sites.",
   "author": "Jisu and Friends",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.1.2",
+    "express": "^4.17.1",
     "mocha": "^4.0.1",
-    "selenium-webdriver": "^3.6.0"
+    "nodemailer": "^6.2.1",
+    "puppeteer": "^1.18.1",
+    "puppeteer-core": "^1.18.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/**/spec_checkout.js -R mocha-spec-json-output-reporter --reporter-options fileName=test_results/output.json",
+    "notify": "node app.js"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "mocha-spec-json-output-reporter": "^1.1.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.pitneycloud.com:borderfree/PI/bfx_qa_automation.git"
   }
 }

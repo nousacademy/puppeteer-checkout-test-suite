@@ -4,11 +4,11 @@ let expect = require('chai').expect;
 const URL = require('url');
 
 //load configuration file
-let config = require('../test_config.json');
+let config = require('./config.json');
 
 // Since mocha is being used for browser-based tests need to up default timeout 2,000ms -> 15,000ms
 const DEFAULT_TimeOut = 15000;
-   
+
 // Function to check if css selector has localized
 let localizedPricesCheck = async (driver, selector, timeOut) => {
   timeOut = timeOut && DEFAULT_TimeOut;
@@ -17,7 +17,7 @@ let localizedPricesCheck = async (driver, selector, timeOut) => {
   let values = await selenium.promise.filter(prices, async (el) => {
     return (await el.getAttribute('data-bfx'));
   });
-  expect(values).to.not.be.empty && expect(values.length).to.equal(prices.length);  
+  expect(values).to.not.be.empty && expect(values.length).to.equal(prices.length);
 }
 
 // Function to check proxy leaks
@@ -27,17 +27,18 @@ let proxyLeakCheck = async (driver, domesticUrl) => {
     let el = await link.getAttribute('href');
     return el.match(new RegExp(domesticUrl,"gim"));
   });
-  expect(values).to.be.empty;  
+  expect(values).to.be.empty;
 }
 
 const runTests = (testEnv, testUrl) => {
 
   //declare variables
-  let MATSettings = {};
-  let driver;
-  let pageNotExists = false;
+  let MATSettings = {},
+   driver,
+   browserName = 'chrome',
+   pageNotExists = false,
   // Env timeout
-  let timeOut = testEnv.timeOut;
+   timeOut = 15000;
 
   let getPageTransform = (page, transform) => {
     return MATSettings.localizations.pages[page].transforms[transform];
@@ -48,7 +49,7 @@ const runTests = (testEnv, testUrl) => {
     test.before(async function(done) {
       this.timeout(timeOut);
 
-      driver = new selenium.Builder().usingServer().withCapabilities({'browserName': 'chrome' }).build();
+      driver = new selenium.Builder().usingServer().withCapabilities({'browserName': browserName }).build();
 
       await driver.get(testUrl.proxy);
       let currentUrl = URL.parse(await driver.getCurrentUrl());
@@ -57,7 +58,7 @@ const runTests = (testEnv, testUrl) => {
       if (currentUrl.hostname == null || testUrl.proxy.indexOf(currentUrl.hostname) == -1) {
         pageNotExists = true;
         done();
-        return;     
+        return;
       }
       //get sessionId
       let sessionId;
@@ -67,34 +68,34 @@ const runTests = (testEnv, testUrl) => {
           sessionId = cookie.value;
           clearInterval(getCookie);
         }
-      }, 200); 
+      }, 200);
       //wait for session storage
       var getMATSettings = setInterval(async () => {
         //get MAT settings
         let transforms = await driver.executeScript("return window.sessionStorage.getItem('" + sessionId + ":merchant');");
         if (transforms !== null) {
           clearInterval(getMATSettings);
-          MATSettings = JSON.parse(transforms);          
+          MATSettings = JSON.parse(transforms);
           //set domestic country cookie code to get CC popup
           driver.manage().addCookie({ name: "bfx.country", value: MATSettings.profile.country.code });
           //set cookie to prevent welcome MAT showing up
-          driver.manage().addCookie({ name: "bfx.isWelcomed", value: "true" });          
+          driver.manage().addCookie({ name: "bfx.isWelcomed", value: "true" });
           //get new page state
           driver.get(testUrl.proxy);
           done();
-        }        
-      }, 200);      
+        }
+      }, 200);
     });
 
     test.after(async function() {
       this.timeout(timeOut);
-      //await driver.quit();    
+      //await driver.quit();
     });
     // Takes a screenshot if test fails
     test.afterEach(async function() {
       this.timeout(timeOut);
       if (this.currentTest.state === 'failed') {
-        
+
         let testTitle = this.currentTest.title.toLowerCase().replace(/\s/g, '_');
         let image = await driver.takeScreenshot();
         let date = new Date();
@@ -106,12 +107,12 @@ const runTests = (testEnv, testUrl) => {
       }
     });
 
-    test.describe(`BFX Proxy | Homepage`, function() {            
+    test.describe(`BFX Proxy | Homepage`, function() {
       this.timeout(timeOut);
 
       test.before(function () {
         //check if site exists - if not skip tests
-        pageNotExists && this.skip();        
+        pageNotExists && this.skip();
       });
 
       test.it("Check stub.js env value", async function() {
@@ -128,7 +129,7 @@ const runTests = (testEnv, testUrl) => {
         expect(title).to.equal("Ethically Made - Sweatshop Free | American Apparel");
       });
 
-      test.it('Search results shows localized pricing', async function() {          
+      test.it('Search results shows localized pricing', async function() {
         this.timeout(timeOut);
 
         // Selects 'Canada' | Context Chooser
@@ -155,18 +156,18 @@ const runTests = (testEnv, testUrl) => {
       });
     });
 
-    test.describe('BFX Proxy | PDP', function() {      
+    test.describe('BFX Proxy | PDP', function() {
       this.timeout(timeOut);
 
       test.before(function () {
         //check if site exists - if not skip tests
-        pageNotExists && this.skip();        
+        pageNotExists && this.skip();
       });
-      
+
       test.it('Shows localized PDP price', async function() {
         this.timeout(timeOut);
         //navigate to PDP
-        await driver.wait(selenium.until.elementLocated(selenium.By.css('.product')), timeOut);        
+        await driver.wait(selenium.until.elementLocated(selenium.By.css('.product')), timeOut);
         await driver.findElement(selenium.By.css('.product a')).click();
 
         await driver.wait(selenium.until.elementsLocated(selenium.By.css(getPageTransform(0, 8).selector)), timeOut);
@@ -174,17 +175,17 @@ const runTests = (testEnv, testUrl) => {
       });
 
       test.it('Adds product to cart', async function() {
-        this.timeout(timeOut);               
+        this.timeout(timeOut);
         // Select size & add to cart
-        await driver.wait(selenium.until.elementLocated(selenium.By.css('.size[data-name="S"]')), timeOut);        
-        await driver.findElement(selenium.By.css('.size[data-name="S"]')).click();        
+        await driver.wait(selenium.until.elementLocated(selenium.By.css('.size[data-name="S"]')), timeOut);
+        await driver.findElement(selenium.By.css('.size[data-name="S"]')).click();
         await driver.findElement(selenium.By.css('#addProductBtn')).click();
 
         await driver.wait(selenium.until.elementLocated(selenium.By.css('#mini-cart-qty')), timeOut);
-        await driver.sleep(1500);  
+        await driver.sleep(1500);
         let qty = await driver.findElement(selenium.By.css('#mini-cart-qty')).getAttribute('data-cart-qty');
-          
-        expect(qty).to.equal('1');                              
+
+        expect(qty).to.equal('1');
 
         // // Move cursor from PDP zoomed image, blocking add to cart btn
         // let plot0 = driver.findElement(selenium.By.css('.search-section .search'));
@@ -192,13 +193,13 @@ const runTests = (testEnv, testUrl) => {
         //   .mouseMove(plot0, {x: 1, y: 1}) // 100px from left, 100 px from top of plot0
         //   .mouseDown()
         //   .mouseMove({x: 400, y: 1}) // 400px to the right of current location
-        //   .perform();     
+        //   .perform();
       });
 
       test.it('Check a[href] links for proxy leaks', async function() {
         this.timeout(timeOut);
         await proxyLeakCheck(driver, testUrl.origin);
-      });  
+      });
     });
 
     test.describe('BFX Proxy | Cart', function() {
@@ -207,7 +208,7 @@ const runTests = (testEnv, testUrl) => {
 
       test.before(function () {
         //check if site exists - if not skip tests
-        pageNotExists && this.skip();    
+        pageNotExists && this.skip();
         //find cart page transforms
         MATSettings.localizations.pages.forEach(function (page) {
           page.transforms.forEach(function (transform) {
@@ -218,32 +219,32 @@ const runTests = (testEnv, testUrl) => {
           });
         });
       });
-      
+
       test.it('Shows localized pricing in checkout', async () => {
         let miniCart = selenium.By.css('#mini-cart-btn');
         await driver.wait(selenium.until.elementLocated(miniCart), timeOut);
         await driver.findElement(miniCart).click();
-        //wait for bfx to load & checkout button visible      
+        //wait for bfx to load & checkout button visible
         let button = selenium.By.css(MATCheckout.selector);
         await driver.wait(selenium.until.elementLocated(button), timeOut);
         await driver.wait(selenium.until.elementIsVisible(driver.findElement(button)), timeOut);
         await driver.sleep(1000);
-        await localizedPricesCheck(driver, getPageTransform(1, 1).selector, timeOut);                  
-      });   
+        await localizedPricesCheck(driver, getPageTransform(1, 1).selector, timeOut);
+      });
 
       test.it('Check a[href] links for proxy leaks', async function() {
         this.timeout(timeOut);
         await proxyLeakCheck(driver, testUrl.origin);
-      });  
+      });
 
       test.it('Envoy loads', async function() {
         this.timeout(timeOut);
-        
+
         await driver.findElement(selenium.By.css(MATCheckout.selector)).click();
         await driver.wait(selenium.until.elementLocated(selenium.By.css('#envoyId')), timeOut);
         let envoy = await driver.findElement(selenium.By.css('#envoyId'))
-        expect(envoy).to.exist;        
-      });      
+        expect(envoy).to.exist;
+      });
     });
   });
 };
@@ -252,16 +253,12 @@ const startTests = () => {
   //loop thru test enviroments
   config.testEnvs.forEach(env => {
     let testEnv = env;
-    //skip if test enviroment shouldn't be tested by jenkins
-    if (config.jenkinsEnv !== testEnv.jenkins)
-      return;
     //loop thru urls array
     testEnv.urls.forEach(url => {
-      let testUrl = url;    
+      let testUrl = url;
+      console.log(testUrl)
       runTests(testEnv, testUrl);
-    });  
+    });
   });
 };
 startTests();
-
-
