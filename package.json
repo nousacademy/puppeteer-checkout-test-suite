@@ -5,21 +5,24 @@
   "author": "Jisu and Friends",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "chai": "^4.1.2",
     "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
     "mocha": "^4.0.1",
+    "node-cron": "^2.0.3",
     "nodemailer": "^6.2.1",
     "puppeteer": "^1.18.1",
     "puppeteer-core": "^1.18.1"
   },
   "directories": {
-    "test": "test"
+    "lib": "utility/actions.js"
   },
   "scripts": {
-    "test": "mocha test/**/spec_checkout.js -R mocha-spec-json-output-reporter --reporter-options fileName=test_results/output.json",
-    "notify": "node app.js"
+    "start": "node app.js",
+    "test": "mocha --retries 1 test/**/spec_checkout.js -R mocha-spec-json-output-reporter --reporter-options fileName=test_results/output.json"
   },
-  "main": "index.js",
+  "main": "app.js",
   "devDependencies": {
     "mocha-spec-json-output-reporter": "^1.1.7"
   },

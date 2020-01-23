@@ -7,6 +7,8 @@ const { expect } = require('chai'),
  events = require('events'),
  // actions lib
  actions = require('../../utility/actions'),
+ // add to cart script, bulk of work should be done
+ add2cart = require('./add_2_cart'),
  // config for this merchant
  config = require('./config.json');
 
@@ -15,15 +17,22 @@ let browser,
 
  var mochaAsync = (fn) => {
    return done => {
-     fn.call().then(done, err => {
+     fn.call()
+     .then(done, err => {
+       console.log(err)
         done(err);
+     })
+     .catch((err) => {
+       done(err);
+       console.log(err)
      });
    };
  };
 
 before(async () => {
   // set headless to false, to view browser launch, good for debugging
-  browser = await puppeteer.launch({headless: true});
+  // --no-sandbox argument needed for puppeteer to work on CentOS 7 VM
+  browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--unlimited-storage', '--full-memory-crash-report']});
   page = await browser.newPage();
 });
 
@@ -44,7 +53,7 @@ describe(`Perform a checkout on ${config.proxy}`, () => {
   it('can GET to the PDP', mochaAsync(async () => {
     let response = await page.goto(config.pdp, { waitUntil: 'networkidle0'});
     expect(response.status()).to.equal(200);
-  })).timeout(10000);
+  })).timeout(20000);
 
   it('checks if the Context Chooser is localized', mochaAsync(async () => {
     let result = await actions.isLocalized(page, config),
@@ -52,41 +61,27 @@ describe(`Perform a checkout on ${config.proxy}`, () => {
     expect(result.flag).to.match(country);
   })).timeout(10000);
 
-  // ADD TO CART functionality
   it('adds to cart on PDP', mochaAsync(async () => {
-
-    await page.evaluate(() => {
-        document.getElementById('selected_product_size').value = "S";
-        document.querySelector('.buttons_container .addProductButton').click();
-      });
-    // wait for minicart to load
-    await page.waitFor(5000);
-
-    const result = await page.evaluate(() => {
-        let cartCounter = document.querySelector('.orders-header-___bag_button__bagButton___2xLFN span').innerText;
-
-        return { text: cartCounter }
-    });
+    // ATC on PDP
+    let cartCounter = await add2cart(page);
     // check if cart counter at 1
-    expect(result.text).to.match(/1/gm);
+    expect(cartCounter).to.match(/1/gm);
   })).timeout(20000);
 
   it('goes to checkout and loads the envoy', mochaAsync(async () => {
-    // click minicart btn, go to cart pg
-    await page.click('[class*="orders-header-___bag_button__bagButton"]');
+    // click minicart btn, go to cart pg, instead of going to URL due to cookie contamination
+    await page.click(config.minicartBtn);
     // wait for minicart to load
     await page.waitFor(5000);
-
-    let checkoutBtn = ".bfx-checkout";
     // test envoy
-    let result = await actions.loadEnvoy(page, checkoutBtn);
+    let result = await actions.loadEnvoy(page, config.checkoutBtn);
     expect(result.envoy).to.equal(true);
   })).timeout(20000);
 
 });
 
-afterEach(() => {
-  // console.log(this);
+afterEach(function() {
+  actions.test4EnvoyFail(page, this, config);
 });
 
 after(async () => {

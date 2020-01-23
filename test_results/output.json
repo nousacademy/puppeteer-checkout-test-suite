@@ -1,13 +1,13 @@
 {
   "stats": {
-    "suites": 5,
-    "tests": 30,
-    "passes": 30,
+    "suites": 8,
+    "tests": 48,
+    "passes": 44,
     "pending": 0,
-    "failures": 0,
-    "start": "2019-07-23T20:45:25.740Z",
-    "end": "2019-07-23T20:47:16.374Z",
-    "duration": 110634
+    "failures": 4,
+    "start": "2019-12-05T21:41:40.459Z",
+    "end": "2019-12-05T21:48:02.073Z",
+    "duration": 381614
   },
   "suites": [
     {
@@ -16,42 +16,45 @@
         {
           "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the proxy site",
           "title": "can GET to the proxy site",
-          "duration": 2743,
+          "duration": 5037,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.allenedmonds.com has production snippet",
           "title": "has production snippet",
-          "duration": 2,
+          "duration": 3,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the PDP",
           "title": "can GET to the PDP",
-          "duration": 4775,
-          "result": "passed",
-          "err": {}
+          "duration": 30001,
+          "result": "failed",
+          "err": {
+            "stack": "Error: Timeout of 30000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves.",
+            "message": "Timeout of 30000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves."
+          }
         },
         {
           "fullTitle": "Perform a checkout on https://global.allenedmonds.com checks if the Context Chooser is localized",
           "title": "checks if the Context Chooser is localized",
-          "duration": 2,
+          "duration": 3,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.allenedmonds.com adds to cart on PDP",
           "title": "adds to cart on PDP",
-          "duration": 8121,
+          "duration": 8100,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.allenedmonds.com goes to checkout and loads the envoy",
           "title": "goes to checkout and loads the envoy",
-          "duration": 2355,
+          "duration": 6957,
           "result": "passed",
           "err": {}
         }
@@ -63,21 +66,21 @@
         {
           "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ can GET to the proxy site",
           "title": "can GET to the proxy site",
-          "duration": 6180,
+          "duration": 10793,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ has production snippet",
           "title": "has production snippet",
-          "duration": 15,
+          "duration": 18,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ can GET to the PDP",
           "title": "can GET to the PDP",
-          "duration": 6437,
+          "duration": 7292,
           "result": "passed",
           "err": {}
         },
@@ -91,14 +94,158 @@
         {
           "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ adds to cart on PDP",
           "title": "adds to cart on PDP",
-          "duration": 5080,
+          "duration": 5173,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ goes to checkout and loads the envoy",
           "title": "goes to checkout and loads the envoy",
-          "duration": 5705,
+          "duration": 6467,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Perform a checkout on https://intl.bergdorfgoodman.com",
+      "tests": [
+        {
+          "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com can GET to the proxy site",
+          "title": "can GET to the proxy site",
+          "duration": 6507,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com has production snippet",
+          "title": "has production snippet",
+          "duration": 33,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com can GET to the PDP",
+          "title": "can GET to the PDP",
+          "duration": 10913,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com checks if the Context Chooser is localized",
+          "title": "checks if the Context Chooser is localized",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com adds to cart on PDP",
+          "title": "adds to cart on PDP",
+          "duration": 10100,
+          "result": "failed",
+          "err": {
+            "stack": "Error: Evaluation failed: TypeError: Cannot read property 'innerText' of null\n    at __puppeteer_evaluation_script__:2:59\n    at ExecutionContext._evaluateInternal (node_modules/puppeteer/lib/ExecutionContext.js:122:13)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n  -- ASYNC --\n    at ExecutionContext.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at DOMWorld.evaluate (node_modules/puppeteer/lib/DOMWorld.js:112:20)\n  -- ASYNC --\n    at Frame.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at Page.evaluate (node_modules/puppeteer/lib/Page.js:782:43)\n    at Page.<anonymous> (node_modules/puppeteer/lib/helper.js:112:23)\n    at module.exports (test/bergdorfgoodman/add_2_cart.js:13:26)",
+            "message": "Evaluation failed: TypeError: Cannot read property 'innerText' of null\n    at __puppeteer_evaluation_script__:2:59"
+          }
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com goes to checkout and loads the envoy",
+          "title": "goes to checkout and loads the envoy",
+          "duration": 9430,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Perform a checkout on https://international.drmartens.com/us/en/",
+      "tests": [
+        {
+          "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ can GET to the proxy site",
+          "title": "can GET to the proxy site",
+          "duration": 4551,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ has production snippet",
+          "title": "has production snippet",
+          "duration": 82,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ can GET to the PDP",
+          "title": "can GET to the PDP",
+          "duration": 5349,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ checks if the Context Chooser is localized",
+          "title": "checks if the Context Chooser is localized",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ adds to cart on PDP",
+          "title": "adds to cart on PDP",
+          "duration": 5133,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ goes to checkout and loads the envoy",
+          "title": "goes to checkout and loads the envoy",
+          "duration": 2359,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Perform a checkout on https://intl.lastcall.com",
+      "tests": [
+        {
+          "fullTitle": "Perform a checkout on https://intl.lastcall.com can GET to the proxy site",
+          "title": "can GET to the proxy site",
+          "duration": 21318,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.lastcall.com has production snippet",
+          "title": "has production snippet",
+          "duration": 3,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.lastcall.com can GET to the PDP",
+          "title": "can GET to the PDP",
+          "duration": 5916,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.lastcall.com checks if the Context Chooser is localized",
+          "title": "checks if the Context Chooser is localized",
+          "duration": 2,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.lastcall.com adds to cart on PDP",
+          "title": "adds to cart on PDP",
+          "duration": 10124,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Perform a checkout on https://intl.lastcall.com goes to checkout and loads the envoy",
+          "title": "goes to checkout and loads the envoy",
+          "duration": 5099,
           "result": "passed",
           "err": {}
         }
@@ -110,21 +257,21 @@
         {
           "fullTitle": "Perform a checkout on https://global.prana.com can GET to the proxy site",
           "title": "can GET to the proxy site",
-          "duration": 4219,
+          "duration": 4583,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.prana.com has production snippet",
           "title": "has production snippet",
-          "duration": 2,
+          "duration": 4,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.prana.com can GET to the PDP",
           "title": "can GET to the PDP",
-          "duration": 5220,
+          "duration": 6739,
           "result": "passed",
           "err": {}
         },
@@ -138,14 +285,14 @@
         {
           "fullTitle": "Perform a checkout on https://global.prana.com adds to cart on PDP",
           "title": "adds to cart on PDP",
-          "duration": 12208,
+          "duration": 26133,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.prana.com goes to checkout and loads the envoy",
           "title": "goes to checkout and loads the envoy",
-          "duration": 3394,
+          "duration": 4546,
           "result": "passed",
           "err": {}
         }
@@ -157,44 +304,50 @@
         {
           "fullTitle": "Perform a checkout on https://intl.target.com can GET to the proxy site",
           "title": "can GET to the proxy site",
-          "duration": 4340,
+          "duration": 4277,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://intl.target.com has production snippet",
           "title": "has production snippet",
-          "duration": 119,
+          "duration": 28,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://intl.target.com can GET to the PDP",
           "title": "can GET to the PDP",
-          "duration": 6391,
+          "duration": 7074,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://intl.target.com checks if the Context Chooser is localized",
           "title": "checks if the Context Chooser is localized",
-          "duration": 2,
+          "duration": 5007,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://intl.target.com adds to cart on PDP",
           "title": "adds to cart on PDP",
-          "duration": 1435,
-          "result": "passed",
-          "err": {}
+          "duration": 3,
+          "result": "failed",
+          "err": {
+            "stack": "Error: No node found for selector: [data-test=\"shippingATCButton\"]\n    at assert (node_modules/puppeteer/lib/helper.js:267:11)\n    at DOMWorld.click (node_modules/puppeteer/lib/DOMWorld.js:366:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n  -- ASYNC --\n    at Frame.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at Page.click (node_modules/puppeteer/lib/Page.js:986:29)\n    at module.exports (test/target/add_2_cart.js:3:11)\n    at mochaAsync (test/target/spec_checkout.js:68:29)\n    at Context.done (test/target/spec_checkout.js:20:9)",
+            "message": "No node found for selector: [data-test=\"shippingATCButton\"]"
+          }
         },
         {
           "fullTitle": "Perform a checkout on https://intl.target.com goes to checkout and loads the envoy",
           "title": "goes to checkout and loads the envoy",
-          "duration": 3100,
-          "result": "passed",
-          "err": {}
+          "duration": 5735,
+          "result": "failed",
+          "err": {
+            "stack": "Error: Error: failed to find element matching selector \".intl-button\"\n    at ElementHandle.$eval (node_modules/puppeteer/lib/JSHandle.js:435:13)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n  -- ASYNC --\n    at ElementHandle.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at DOMWorld.$eval (node_modules/puppeteer/lib/DOMWorld.js:156:21)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n  -- ASYNC --\n    at Frame.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at Page.$eval (node_modules/puppeteer/lib/Page.js:302:29)\n    at Page.<anonymous> (node_modules/puppeteer/lib/helper.js:112:23)\n    at Object.loadEnvoy (utility/actions.js:63:14)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "message": "Error: failed to find element matching selector \".intl-button\""
+          }
         }
       ]
     },
@@ -204,42 +357,42 @@
         {
           "fullTitle": "Perform a checkout on https://global.ulta.com can GET to the proxy site",
           "title": "can GET to the proxy site",
-          "duration": 6559,
+          "duration": 8488,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.ulta.com has production snippet",
           "title": "has production snippet",
-          "duration": 4,
+          "duration": 82,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.ulta.com can GET to the PDP",
           "title": "can GET to the PDP",
-          "duration": 11315,
+          "duration": 10536,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.ulta.com checks if the Context Chooser is localized",
           "title": "checks if the Context Chooser is localized",
-          "duration": 2,
+          "duration": 17,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.ulta.com adds to cart on PDP",
           "title": "adds to cart on PDP",
-          "duration": 4203,
+          "duration": 4744,
           "result": "passed",
           "err": {}
         },
         {
           "fullTitle": "Perform a checkout on https://global.ulta.com goes to checkout and loads the envoy",
           "title": "goes to checkout and loads the envoy",
-          "duration": 4472,
+          "duration": 7588,
           "result": "passed",
           "err": {}
         }
@@ -247,68 +400,102 @@
     }
   ],
   "pending": [],
-  "failures": [],
+  "failures": [
+    {
+      "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 30001,
+      "result": "failed",
+      "err": {
+        "stack": "Error: Timeout of 30000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves.",
+        "message": "Timeout of 30000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves."
+      }
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 10100,
+      "result": "failed",
+      "err": {
+        "stack": "Error: Evaluation failed: TypeError: Cannot read property 'innerText' of null\n    at __puppeteer_evaluation_script__:2:59\n    at ExecutionContext._evaluateInternal (node_modules/puppeteer/lib/ExecutionContext.js:122:13)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n  -- ASYNC --\n    at ExecutionContext.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at DOMWorld.evaluate (node_modules/puppeteer/lib/DOMWorld.js:112:20)\n  -- ASYNC --\n    at Frame.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at Page.evaluate (node_modules/puppeteer/lib/Page.js:782:43)\n    at Page.<anonymous> (node_modules/puppeteer/lib/helper.js:112:23)\n    at module.exports (test/bergdorfgoodman/add_2_cart.js:13:26)",
+        "message": "Evaluation failed: TypeError: Cannot read property 'innerText' of null\n    at __puppeteer_evaluation_script__:2:59"
+      }
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.target.com adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 3,
+      "result": "failed",
+      "err": {
+        "stack": "Error: No node found for selector: [data-test=\"shippingATCButton\"]\n    at assert (node_modules/puppeteer/lib/helper.js:267:11)\n    at DOMWorld.click (node_modules/puppeteer/lib/DOMWorld.js:366:5)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n  -- ASYNC --\n    at Frame.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at Page.click (node_modules/puppeteer/lib/Page.js:986:29)\n    at module.exports (test/target/add_2_cart.js:3:11)\n    at mochaAsync (test/target/spec_checkout.js:68:29)\n    at Context.done (test/target/spec_checkout.js:20:9)",
+        "message": "No node found for selector: [data-test=\"shippingATCButton\"]"
+      }
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.target.com goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 5735,
+      "result": "failed",
+      "err": {
+        "stack": "Error: Error: failed to find element matching selector \".intl-button\"\n    at ElementHandle.$eval (node_modules/puppeteer/lib/JSHandle.js:435:13)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n  -- ASYNC --\n    at ElementHandle.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at DOMWorld.$eval (node_modules/puppeteer/lib/DOMWorld.js:156:21)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n  -- ASYNC --\n    at Frame.<anonymous> (node_modules/puppeteer/lib/helper.js:111:15)\n    at Page.$eval (node_modules/puppeteer/lib/Page.js:302:29)\n    at Page.<anonymous> (node_modules/puppeteer/lib/helper.js:112:23)\n    at Object.loadEnvoy (utility/actions.js:63:14)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+        "message": "Error: failed to find element matching selector \".intl-button\""
+      }
+    }
+  ],
   "passes": [
     {
       "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the proxy site",
       "title": "can GET to the proxy site",
-      "duration": 2743,
+      "duration": 5037,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.allenedmonds.com has production snippet",
       "title": "has production snippet",
-      "duration": 2,
-      "result": "passed",
-      "err": {}
-    },
-    {
-      "fullTitle": "Perform a checkout on https://global.allenedmonds.com can GET to the PDP",
-      "title": "can GET to the PDP",
-      "duration": 4775,
+      "duration": 3,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.allenedmonds.com checks if the Context Chooser is localized",
       "title": "checks if the Context Chooser is localized",
-      "duration": 2,
+      "duration": 3,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.allenedmonds.com adds to cart on PDP",
       "title": "adds to cart on PDP",
-      "duration": 8121,
+      "duration": 8100,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.allenedmonds.com goes to checkout and loads the envoy",
       "title": "goes to checkout and loads the envoy",
-      "duration": 2355,
+      "duration": 6957,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ can GET to the proxy site",
       "title": "can GET to the proxy site",
-      "duration": 6180,
+      "duration": 10793,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ has production snippet",
       "title": "has production snippet",
-      "duration": 15,
+      "duration": 18,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ can GET to the PDP",
       "title": "can GET to the PDP",
-      "duration": 6437,
+      "duration": 7292,
       "result": "passed",
       "err": {}
     },
@@ -322,35 +509,154 @@
     {
       "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ adds to cart on PDP",
       "title": "adds to cart on PDP",
-      "duration": 5080,
+      "duration": 5173,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.americanapparel.com/en/ goes to checkout and loads the envoy",
       "title": "goes to checkout and loads the envoy",
-      "duration": 5705,
+      "duration": 6467,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com can GET to the proxy site",
+      "title": "can GET to the proxy site",
+      "duration": 6507,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com has production snippet",
+      "title": "has production snippet",
+      "duration": 33,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 10913,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com checks if the Context Chooser is localized",
+      "title": "checks if the Context Chooser is localized",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.bergdorfgoodman.com goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 9430,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ can GET to the proxy site",
+      "title": "can GET to the proxy site",
+      "duration": 4551,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ has production snippet",
+      "title": "has production snippet",
+      "duration": 82,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 5349,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ checks if the Context Chooser is localized",
+      "title": "checks if the Context Chooser is localized",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 5133,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://international.drmartens.com/us/en/ goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 2359,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.lastcall.com can GET to the proxy site",
+      "title": "can GET to the proxy site",
+      "duration": 21318,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.lastcall.com has production snippet",
+      "title": "has production snippet",
+      "duration": 3,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.lastcall.com can GET to the PDP",
+      "title": "can GET to the PDP",
+      "duration": 5916,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.lastcall.com checks if the Context Chooser is localized",
+      "title": "checks if the Context Chooser is localized",
+      "duration": 2,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.lastcall.com adds to cart on PDP",
+      "title": "adds to cart on PDP",
+      "duration": 10124,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Perform a checkout on https://intl.lastcall.com goes to checkout and loads the envoy",
+      "title": "goes to checkout and loads the envoy",
+      "duration": 5099,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.prana.com can GET to the proxy site",
       "title": "can GET to the proxy site",
-      "duration": 4219,
+      "duration": 4583,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.prana.com has production snippet",
       "title": "has production snippet",
-      "duration": 2,
+      "duration": 4,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.prana.com can GET to the PDP",
       "title": "can GET to the PDP",
-      "duration": 5220,
+      "duration": 6739,
       "result": "passed",
       "err": {}
     },
@@ -364,98 +670,84 @@
     {
       "fullTitle": "Perform a checkout on https://global.prana.com adds to cart on PDP",
       "title": "adds to cart on PDP",
-      "duration": 12208,
+      "duration": 26133,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.prana.com goes to checkout and loads the envoy",
       "title": "goes to checkout and loads the envoy",
-      "duration": 3394,
+      "duration": 4546,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://intl.target.com can GET to the proxy site",
       "title": "can GET to the proxy site",
-      "duration": 4340,
+      "duration": 4277,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://intl.target.com has production snippet",
       "title": "has production snippet",
-      "duration": 119,
+      "duration": 28,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://intl.target.com can GET to the PDP",
       "title": "can GET to the PDP",
-      "duration": 6391,
+      "duration": 7074,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://intl.target.com checks if the Context Chooser is localized",
       "title": "checks if the Context Chooser is localized",
-      "duration": 2,
-      "result": "passed",
-      "err": {}
-    },
-    {
-      "fullTitle": "Perform a checkout on https://intl.target.com adds to cart on PDP",
-      "title": "adds to cart on PDP",
-      "duration": 1435,
-      "result": "passed",
-      "err": {}
-    },
-    {
-      "fullTitle": "Perform a checkout on https://intl.target.com goes to checkout and loads the envoy",
-      "title": "goes to checkout and loads the envoy",
-      "duration": 3100,
+      "duration": 5007,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.ulta.com can GET to the proxy site",
       "title": "can GET to the proxy site",
-      "duration": 6559,
+      "duration": 8488,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.ulta.com has production snippet",
       "title": "has production snippet",
-      "duration": 4,
+      "duration": 82,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.ulta.com can GET to the PDP",
       "title": "can GET to the PDP",
-      "duration": 11315,
+      "duration": 10536,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.ulta.com checks if the Context Chooser is localized",
       "title": "checks if the Context Chooser is localized",
-      "duration": 2,
+      "duration": 17,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.ulta.com adds to cart on PDP",
       "title": "adds to cart on PDP",
-      "duration": 4203,
+      "duration": 4744,
       "result": "passed",
       "err": {}
     },
     {
       "fullTitle": "Perform a checkout on https://global.ulta.com goes to checkout and loads the envoy",
       "title": "goes to checkout and loads the envoy",
-      "duration": 4472,
+      "duration": 7588,
       "result": "passed",
       "err": {}
     }

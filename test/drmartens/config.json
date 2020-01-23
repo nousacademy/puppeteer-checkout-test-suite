@@ -1,0 +1,10 @@
+{
+  "proxy": "https://international.drmartens.com/us/en/",
+  "origin": "https://www.drmartens.com/us/en/",
+  "pdp": "https://international.drmartens.com/us/en/p/14045001",
+  "cookie_domain": ".drmartens.com",
+  "cc_country": "MX",
+  "cc_currency": "MXN",
+  "cart_pg_path": "cart",
+  "checkoutBtn": "#bfx-checkout"
+}

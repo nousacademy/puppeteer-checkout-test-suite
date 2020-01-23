@@ -1,0 +1,58 @@
+/* navbar / header */
+.navbar {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(62, 83, 164)), to(rgb(17, 143, 224)));
+  background-image: linear-gradient(to right, rgb(62, 83, 164) 0%, rgb(17, 143, 224) 100%);
+  background-repeat: repeat-x;
+}
+
+.navbar-brand svg {
+  width: 203px;
+  height: 49px;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.pass-text,
+.fail-text {
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+}
+
+.passed-counter,
+.failed-counter {
+  color: rgb(255, 255, 255);
+}
+
+.pass-card,
+.fail-card {
+  text-align: center;
+  font: 100px Arial, sans-serif;
+}
+
+.pass-card {
+  background: rgb(0, 128, 0);
+}
+
+.fail-card {
+  background: rgb(255, 0, 0);
+}
+
+.suite-type:hover {
+  background: rgb(222, 222, 222);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.status-icon {
+  float: right;
+}
+
+.fa-check-circle {
+  color: rgb(0, 128, 0);
+}
+
+.fa-times-circle {
+  color: rgb(255, 0, 0);
+}

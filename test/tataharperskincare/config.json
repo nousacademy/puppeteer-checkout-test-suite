@@ -1,0 +1,10 @@
+{
+  "proxy": "https://global.tataharperskincare.com",
+  "origin": "https://www.tataharperskincare.com",
+  "pdp": "https://global.tataharperskincare.com/hydrating-floral-essence-125-ml",
+  "cookie_domain": ".tataharperskincare.com",
+  "cc_country": "CA",
+  "cc_currency": "CAD",
+  "cart_pg_path": "/checkout/cart/",
+  "checkoutBtn": ".checkout .bfx-checkout"
+}

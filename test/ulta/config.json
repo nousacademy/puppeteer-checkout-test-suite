@@ -1,9 +1,10 @@
 {
-  "title": "Cosmetics, Fragrance, Skincare and Beauty Gifts | Ulta Beauty",
   "proxy": "https://global.ulta.com",
   "origin": "https://www.ulta.com",
   "pdp": "https://global.ulta.com/monochromatic-blush-duo?productId=pimprod2006013",
   "cookie_domain": ".ulta.com",
   "cc_country": "CA",
-  "cc_currency": "CAD"
+  "cc_currency": "CAD",
+  "cart_pg_path": "/bag",
+  "checkoutBtn": "#bfxcheckout"
 }

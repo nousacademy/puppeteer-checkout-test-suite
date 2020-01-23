@@ -1,0 +1,10 @@
+{
+  "proxy": "http://intl.lafayette148ny.com",
+  "origin": "https://www.lafayette148ny.com",
+  "pdp": "https://intl.lafayette148ny.com/cheetah-print-cosmetic-case",
+  "cookie_domain": ".lafayette148ny.com",
+  "cc_country": "CA",
+  "cc_currency": "CAD",
+  "cart_pg_path": "/checkout/cart/",
+  "checkoutBtn": ".item .checkout.action"
+}
