@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BFX Envoy Status</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.10.1/css/pro.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <!-- <div style="background: rgb(49, 65, 131);">Proxy QA results</div> -->
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.81 27"><defs><style>.b{fill:#fff}</style><linearGradient id="a" x1="108.77" y1="3.95" x2="127.98" y2="23.16" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".12" stop-color="#fff" stop-opacity=".79"/><stop offset=".24" stop-color="#fff" stop-opacity=".62"/><stop offset=".35" stop-color="#fff" stop-opacity=".5"/><stop offset=".44" stop-color="#fff" stop-opacity=".43"/><stop offset=".5" stop-color="#fff" stop-opacity=".4"/><stop offset=".56" stop-color="#fff" stop-opacity=".43"/><stop offset=".66" stop-color="#fff" stop-opacity=".51"/><stop offset=".77" stop-color="#fff" stop-opacity=".65"/><stop offset=".9" stop-color="#fff" stop-opacity=".84"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><path d="M118.31 0a13.5 13.5 0 1 0 13.5 13.5A13.5 13.5 0 0 0 118.31 0zm0 26.28a12.78 12.78 0 1 1 12.78-12.78 12.78 12.78 0 0 1-12.78 12.78zm-4.48-23h-.15a11.21 11.21 0 1 0 4.63-1H118c-.23 0-.36.16-.36.42s.13.42.35.42h.28a10.33 10.33 0 1 1-4.27.92c.2-.09.25-.29.15-.53a.42.42 0 0 0-.32-.23zM113.7 6a.38.38 0 0 0-.24.08 8.84 8.84 0 0 0 0 14.78.38.38 0 0 0 .24.08.5.5 0 0 0 .42-.27.46.46 0 0 0-.06-.68 7.79 7.79 0 0 1 0-13 .46.46 0 0 0 .2-.3.63.63 0 0 0-.12-.39.52.52 0 0 0-.44-.3zm4.42 15.26c-.25 0-.44.17-.44.53s.17.52.44.52h.19a8.84 8.84 0 1 0 0-17.68h-.19c-.27 0-.44.21-.44.53s.17.53.44.53h.19a7.79 7.79 0 0 1 0 15.58zm-5-11.54a.57.57 0 0 1 .85-.06.56.56 0 0 1 .18.83 5.21 5.21 0 0 0 0 6 .56.56 0 0 1-.18.83.57.57 0 0 1-.85-.06 6.48 6.48 0 0 1 0-7.54z" fill="url(#a)"/><path class="b" d="M118.33 17.12c-.41 0-.65-.31-.65-.78s.24-.77.65-.77a2.07 2.07 0 1 0-.14-4.14 2.22 2.22 0 0 0-1.46.45v9.63c0 .46-.32.69-.77.69s-.77-.23-.77-.69V12v-.71a1.2 1.2 0 0 1 .63-.74 5.32 5.32 0 0 1 2.5-.68 3.62 3.62 0 1 1 0 7.23zm0 2.82c-.41 0-.65-.31-.65-.78s.24-.77.65-.77a4.89 4.89 0 0 0 0-9.78 5.09 5.09 0 0 0-1.88.33 1.91 1.91 0 0 1-.6.16.69.69 0 0 1-.68-.72V2.63c0-.41.29-.66.77-.66s.77.25.77.66v4.66a6.19 6.19 0 0 1 1.59-.2 6.43 6.43 0 0 1 0 12.85zM93.48 17.93a4.77 4.77 0 0 0 2.63.68c2.16 0 3.45-1.12 3.45-2.92 0-1.42-.75-2.15-2.77-2.82-1.34-.44-1.91-.86-1.91-1.51 0-.84.72-1.26 1.75-1.26a5 5 0 0 1 2.62.73V9.58a4.77 4.77 0 0 0-2.58-.7c-2 0-3.23.93-3.23 2.52 0 1.21.72 2.07 2.43 2.64s2.25.87 2.25 1.76-.76 1.57-2 1.57a4.82 4.82 0 0 1-2.63-.71zm-8.19-5.06c.16-1.69 1.07-2.75 2.69-2.75s2.5.91 2.55 2.75zm6.46 3.84a7.2 7.2 0 0 1-3 .62c-2.26 0-3.41-1.07-3.5-3.24h6.7c0-.25.06-.76.06-1 0-2.62-1.33-4.24-3.9-4.24-2.88 0-4.33 2.12-4.33 4.88 0 3.12 1.64 4.85 4.79 4.85a6.73 6.73 0 0 0 3.2-.66zm-11.37 1.68l2.69-9.29h-1.44l-1.93 7.3-2.15-7.3H76l-2.13 7.39-1.96-7.39h-1.57L73 18.39h1.51L76.75 11l2.13 7.38zM65.3 17.33c-1.86 0-2.89-1.42-2.89-3.57s1-3.6 2.89-3.6 2.89 1.42 2.89 3.57-1.05 3.6-2.89 3.6zm0 1.28c3 0 4.42-2.15 4.42-4.87s-1.27-4.86-4.42-4.86c-2.95 0-4.43 2.15-4.43 4.86s1.28 4.87 4.43 4.87zm-12.68-8a4.39 4.39 0 0 1 2.2-.49A3 3 0 0 1 58 13.45c0 2.5-1.37 3.88-3.76 3.88a4.28 4.28 0 0 1-1.59-.25zm-1.46 7.46a9.36 9.36 0 0 0 2.93.5c3.37 0 5.4-1.88 5.4-5.18A4.2 4.2 0 0 0 55 8.88a5.73 5.73 0 0 0-2.34.48V4.72h-1.5zm-9.08 5l1.77-4.71 3.69-9.26h-1.6l-2.82 7.59-2.77-7.59H38.7l3.69 9.29-1.78 4.71zm-10.89-10.2c.17-1.69 1.08-2.75 2.7-2.75s2.49.91 2.55 2.75zm6.47 3.84a7.24 7.24 0 0 1-3 .62c-2.25 0-3.4-1.07-3.49-3.24h6.7v-1c0-2.62-1.33-4.24-3.89-4.24-2.88 0-4.33 2.12-4.33 4.88 0 3.12 1.63 4.85 4.78 4.85a6.75 6.75 0 0 0 3.23-.58zm-9.56 1.68v-6.08c0-2.62-1.58-3.43-3.6-3.43a12.92 12.92 0 0 0-4.17.79v8.72h1.46v-7.78a7.26 7.26 0 0 1 2.36-.41c1.69 0 2.49.58 2.49 2.61v5.58zm-9.17-1.28a5.4 5.4 0 0 1-1.64.24c-.66 0-1.15-.19-1.15-1.39v-5.64h2.44V9.1h-2.44V6.81H14.7V9.1h-1.54v1.22h1.54v5.92c0 1.67.88 2.37 2.24 2.37a5.46 5.46 0 0 0 2-.33zm-8.08-9.75a.94.94 0 0 0 1-1 1 1 0 1 0-1.91 0 1 1 0 0 0 .91 1zm.71 1.74h-1.45v9.29h1.45zm-10.1 1.64a3.88 3.88 0 0 1 2.2-.58 3 3 0 0 1 3.15 3.29c0 2.5-1.37 3.88-3.77 3.88a4.13 4.13 0 0 1-1.58-.25zm0 12.36v-4.7a5.68 5.68 0 0 0 1.54.21c3.31 0 5.37-1.88 5.37-5.18A4.23 4.23 0 0 0 3.8 8.88 5.85 5.85 0 0 0 0 10.23V23.1z"/></svg>
+    </a>
+  </nav>
+  <!-- VueJS app -->
+  <div id="qa-app" class="container">
+    <div class="row">
+        <div class="col">
+          <!-- failed tests -->
+          <div class="card fail-card" title="Failing">
+            <div class="card-body">
+              <span class="failed-counter">{{envoyFails}}</span>
+              <br>
+              <span class="fail-text">Envoy failures</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+          <!-- passed tests -->
+          <div class="card pass-card" title="Passing">
+            <div class="card-body">
+              <span class="passed-counter">{{envoyPasses}}</span>
+              <br>
+              <span class="pass-text">Envoy passes</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <br/>
+          <h2>Filter by Test Suite</h2>
+          <div class="input-group">
+            <input v-model="search" type="text" class="form-control" placeholder="Search...">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-outline-secondary">Search</button>
+            </div>
+          </div>
+          <br/>
+          <ul class="list-group">
+            <li v-for="suite in filteredList" class="list-group-item suite-type" v-bind:key="suite.id">
+              <span> {{ suite.title }} </span>
+              <span v-for="test in suite.tests" class="status-icon">
+                <i v-if="test.result === 'passed'" class="fas fa-check-circle" v-on:click="details(test)"></i>
+                <i v-if="test.result === 'failed'" class="fas fa-times-circle" v-on:click="details(test)"></i>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal end -->
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>

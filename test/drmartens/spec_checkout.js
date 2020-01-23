@@ -3,8 +3,6 @@ const { expect } = require('chai'),
 // High-level API to control Chrome headlessly
 // https://github.com/GoogleChrome/puppeteer
  puppeteer = require('puppeteer'),
- // native event emitter
- events = require('events'),
  // actions lib
  actions = require('../../utility/actions'),
  // add to cart script, bulk of work should be done
@@ -15,19 +13,19 @@ const { expect } = require('chai'),
 let browser,
  page;
 
-var mochaAsync = (fn) => {
-  return done => {
-    fn.call()
-    .then(done, err => {
+ var mochaAsync = (fn) => {
+   return done => {
+     fn.call()
+     .then(done, err => {
+       console.log(err)
+        done(err);
+     })
+     .catch((err) => {
        done(err);
-       console.log(err);
-    })
-    .catch((err) => {
-      done(err);
-      console.log(err);
-    });
-  };
-};
+       console.log(err)
+     });
+   };
+ };
 
 before(async () => {
   // set headless to false, to view browser launch, good for debugging
@@ -53,7 +51,7 @@ describe(`Perform a checkout on ${config.proxy}`, async () => {
   it('can GET to the PDP', mochaAsync(async () => {
     let response = await page.goto(config.pdp, { waitUntil: 'networkidle0'});
     expect(response.status()).to.equal(200);
-  })).timeout(20000);
+  })).timeout(10000);
 
   it('checks if the Context Chooser is localized', mochaAsync(async () => {
     let result = await actions.isLocalized(page, config),
@@ -66,14 +64,15 @@ describe(`Perform a checkout on ${config.proxy}`, async () => {
     let cartCounter = await add2cart(page);
     // check if cart counter at 1
     expect(cartCounter).to.match(/1/gm);
-  })).timeout(15000);
+  })).timeout(20000);
 
   it('goes to checkout and loads the envoy', mochaAsync(async () => {
-    // go to cart page
+    // go to cart pg
     await page.goto(config.proxy + config.cart_pg_path);
+    // test envoy
     let result = await actions.loadEnvoy(page, config.checkoutBtn);
     expect(result.envoy).to.equal(true);
-  })).timeout(10000);
+  })).timeout(20000);
 
 });
 
@@ -82,5 +81,5 @@ afterEach(function() {
 });
 
 after(async () => {
-  await browser.close()
+  await browser.close();
 });

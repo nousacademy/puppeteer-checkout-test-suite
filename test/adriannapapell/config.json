@@ -1,0 +1,10 @@
+{
+  "proxy": "https://adriannapapell.borderfree.com",
+  "origin": "https://www.adriannapapell.com",
+  "pdp": "https://adriannapapell.borderfree.com/cap-sleeve-beaded-gown-09190494_CHA_M.html?cgid=best-seller",
+  "cookie_domain": ".borderfree.com",
+  "cc_country": "CA",
+  "cc_currency": "CAD",
+  "cart_pg_path": "/cart",
+  "checkoutBtn": "button[name=\"dwfrm_cart_checkoutCart\"]"
+}

@@ -1,29 +1,20 @@
-const nodeMailer = require('nodemailer');
-
-// let transporter = nodeMailer.createTransport({
-//   host: 'pb.com',
-//   port: 465,
-//   secure: true, //true for 465 port, false for other ports
-//   auth: {
-//     user: 'alessandro.elkan@pb.com',
-//     pass: ''
-//   }
-// });
-//
-// let mailOptions = {
-//     from: '"Alessandro Elkan" <alessandro.elkan@pb.com>', // sender address
-//     to: 'jisu.kim@pb.com, iris.martinez@pb.com', // list of receivers
-//     subject: 'Hello from Puppeteer ✔', // Subject line
-//     text: 'Robot apocalypse?', // plain text body
-//     html: '<a href="https://google.com">Robot apocalypse?</b>' // html body
-// };
-
 // TODO
 // + localizedPricesCheck
 // + proxyLeakCheck
 // + getMATSettings
 
 const actions = {
+  addCookie: async(pg, cookieObj) => {
+    let cookies = [];
+    // console.log(cookieObj)
+      cookies.push({
+        name: cookieObj.name,
+        value: cookieObj.value,
+        domain: cookieObj.domain
+      });
+
+    await pg.setCookie(...cookies);
+  },
   checkTitle: async(pg, settings) => {
     const title = await pg.title();
     return title;
@@ -68,8 +59,13 @@ const actions = {
   },
   loadEnvoy: async(pg, checkoutBtn) => {
     await pg.content();
-    await pg.waitFor(checkoutBtn);
-    await pg.click(checkoutBtn);
+    // click button
+    await pg.$eval(checkoutBtn, (btn) => {
+      console.log(btn)
+      btn.click()
+
+    });
+    // console.log('here')
     await pg.waitFor('#envoyId');
     const result = await pg.evaluate(() => {
         let envoy = document.body.contains(document.getElementById('envoyId'));
@@ -77,42 +73,24 @@ const actions = {
       });
     return result;
   },
-  sendEmail: async() => {
-    // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
-    let testAccount = await nodemailer.createTestAccount();
-
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: testAccount.user, // generated ethereal user
-        pass: testAccount.pass // generated ethereal password
-      }
-    });
-
-    // send mail with defined transport object
-    let info = await transporter.sendMail({
-      from: '"Fred Foo 👻" <foo@example.com>', // sender address
-      to: "alessandro.elkan@pb.com, iris.martinez@pb.com, jisu.kim@pb.com, paul.bruno@pb.com", // list of receivers
-      subject: "Hello ✔", // Subject line
-      // text: "Hello world?", // plain text body
-      html: "<b>Hello from Puppeteer</b>" // html body
-    });
-
-    console.log("Message sent: %s", info.messageId);
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-    // Preview only available when sending through an Ethereal account
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+  sendEmail: async (receivers, title, content) => {
+    const { exec } = require('child_process');
+    exec(`mail -s "${title}" ${receivers} <<< "${content}"`);
   },
-  takeScreenshot: (pg) => {
+  // usage: actions.takeScreenshot(page, {width: 1000, height: 600, x: 0, y: -200} );
+  takeScreenshot: (pg, clip) => {
     pg.screenshot({
-      path: 'failure.png'
+      path: 'failure.png',
+      clip: clip //{width: 1000, height: 600, x: 0, y: -200}
     });
+  },
+  test4EnvoyFail: function(p, ctx, testCtx) {
+    p.on("error", err => {
+        console.log("error", err);
+    });
+    if (ctx.currentTest.state === 'failed' && ctx.currentTest.title.match(/envoy/)) { 
+      actions.sendEmail("alessandro.elkan@pb.com, Jisu.Kim@pb.com, iris.martinez1@pb.com, paul.bruno@pb.com", `We've encountered an issue on ${testCtx.proxy}`, `Envoy failed to load at: ${testCtx.proxy + testCtx.cart_pg_path}`);
+    }
   }
 };
 

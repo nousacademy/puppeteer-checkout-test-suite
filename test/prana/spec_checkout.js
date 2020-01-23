@@ -7,6 +7,8 @@ const { expect } = require('chai'),
  events = require('events'),
  // actions lib
  actions = require('../../utility/actions'),
+ // add to cart script, bulk of work should be done
+ add2cart = require('./add_2_cart'),
  // config for this merchant
  config = require('./config.json');
 
@@ -15,19 +17,26 @@ let browser,
 
  var mochaAsync = (fn) => {
    return done => {
-     fn.call().then(done, err => {
+     fn.call()
+     .then(done, err => {
+       console.log(err)
         done(err);
+     })
+     .catch((err) => {
+       done(err);
+       console.log(err)
      });
    };
  };
 
 before(async () => {
   // set headless to false, to view browser launch, good for debugging
-  browser = await puppeteer.launch({headless: true});
+  // --no-sandbox argument needed for puppeteer to work on CentOS 7 VM
+  browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--unlimited-storage', '--full-memory-crash-report']});
   page = await browser.newPage();
 });
 
-describe(`Perform a checkout on ${config.proxy}`, () => {
+describe(`Perform a checkout on ${config.proxy}`, async () => {
 
   it('can GET to the proxy site', mochaAsync(async () => {
     let response = await page.goto(config.proxy);
@@ -52,52 +61,25 @@ describe(`Perform a checkout on ${config.proxy}`, () => {
     expect(result.flag).to.match(country);
   })).timeout(10000);
 
-  // ADD TO CART functionality
   it('adds to cart on PDP', mochaAsync(async () => {
-
-    await page.evaluate(() => {
-      // select color
-      document.querySelector('a.selectable[data-attr-url*="gave"]').click();
-    });
-    // wait for page to refresh
-    await page.waitFor(4000);
-
-    await page.evaluate(() => {
-      // select size
-      document.querySelector('a.selectable[data-attr-value="S"]').click();
-    });
-    // wait for page to refresh
-    await page.waitFor(4000);
-
-    await page.evaluate(() => {
-      // click add to cart btn
-      document.querySelector('.btn__add-to-cart').click();
-    });
-    // wait for page to refresh
-    await page.waitFor(4000);
-
-    const result = await page.evaluate(() => {
-      // cart counter
-      let text = document.querySelector('.minicart-quantity').innerText;
-      return { text }
-    });
+    // ATC on PDP
+    let cartCounter = await add2cart(page);
     // check if cart counter at 1
-    expect(result.text).to.match(/1/gm);
-  })).timeout(20000);
+    expect(cartCounter).to.match(/1/gm);
+  })).timeout(30000);
 
   it('goes to checkout and loads the envoy', mochaAsync(async () => {
     // go to cart page
-    await page.goto(`${config.proxy}/cart`);
-    // document.querySelector('.checkout-continue__desktop .btn-checkout').click()
-    let checkoutBtn = ".checkout-continue__mobile .btn-checkout";
-    let result = await actions.loadEnvoy(page, checkoutBtn);
+    await page.goto(config.proxy + config.cart_pg_path);
+    // load envoy
+    let result = await actions.loadEnvoy(page, config.checkoutBtn);
     expect(result.envoy).to.equal(true);
-  })).timeout(10000);
+  })).timeout(30000);
 
 });
 
-afterEach(() => {
-  // console.log(this);
+afterEach(function() {
+  actions.test4EnvoyFail(page, this, config);
 });
 
 after(async () => {

@@ -1,0 +1,10 @@
+{
+  "proxy": "http://global.alexisbittar.com",
+  "origin": "https://www.alexisbittar.com",
+  "pdp": "https://global.alexisbittar.com/navette-cry-lg-spiked-hinge-br-iriiris-38670.html",
+  "cookie_domain": ".alexisbittar.com",
+  "cc_country": "CA",
+  "cc_currency": "CAD",
+  "cart_pg_path": "/front/app/cart/update",
+  "checkoutBtn": ".cart-collaterals .checkout-btn"
+}

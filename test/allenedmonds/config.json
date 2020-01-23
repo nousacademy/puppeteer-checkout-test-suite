@@ -1,9 +1,10 @@
 {
-  "title": "Mens Shoes - Mens Dress Shoes - Mens Casual Shoes",
   "proxy": "https://global.allenedmonds.com",
   "origin": "https://www.allenedmonds.com",
   "pdp": "https://global.allenedmonds.com/accessories/belts/dress-belts/glass-avenue-belt/SF1015593.html?dwvar_SF1015593_color=1015592#start=1",
   "cookie_domain": ".allenedmonds.com",
   "cc_country": "CA",
-  "cc_currency": "CAD"
+  "cc_currency": "CAD",
+  "cart_pg_path": "/cart",
+  "checkoutBtn": "button[value=\"Checkout\"]"
 }

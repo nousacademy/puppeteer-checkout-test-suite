@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col">
+      <!-- failed tests -->
+      <div class="card fail-card" title="Failing">
+        <div class="card-body">
+          <span class="failed-counter">${stats.failures}</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="col">
+      <!-- passed tests -->
+      <div class="card pass-card" title="Passing">
+        <div class="card-body">
+          <span class="passed-counter">${stats.passes}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <br/>
+      <h2>Filter by Test Suite</h2>
+      <div class="input-group">
+        <input v-model="search" type="text" class="form-control" placeholder="Search...">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary">Search</button>
+        </div>
+      </div>
+      <br/>
+      <ul class="list-group">
+        <li v-for="suite in filteredList" class="list-group-item suite-type">
+          <span> ${ suite.title } </span>
+          <span v-for="test in suite.tests" class="status-icon">
+            <i v-if="test.result === 'passed'" class="fas fa-check-circle" v-on:click="details(test)"></i>
+            <i v-if="test.result === 'failed'" class="fas fa-times-circle" v-on:click="details(test)"></i>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<script> var test_results = {{{data}}}; </script>
+<script src="/js/{{js}}.js"></script>
