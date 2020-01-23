@@ -23,7 +23,7 @@ git clone https://github.com/nousacademy/puppeteer-checkout-test-suite
 Then cd into the cloned directory
 
 ```
-cd bfx_qa_automation
+cd puppeteer-checkout-test-suite
 ```
 
 Lastly, install node dependencies
